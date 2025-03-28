@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang=\"en\">
+<html lang="en">
 <head>
-    <meta charset=\"UTF-8\">
-    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>📊 Fun Analytics Dashboard</title>
-    <link href=\"https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap\" rel=\"stylesheet\">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <script type="module" src="https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js"></script>
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -63,11 +64,17 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
-        iframe {
+        tableau-viz {
             width: 100%;
             height: 600px;
-            border: none;
             border-radius: 10px;
+        }
+
+        #error-message {
+            display: none;
+            color: #ffdddd;
+            text-align: center;
+            margin-top: 10px;
         }
 
         footer {
@@ -89,7 +96,7 @@
 
         @media (max-width: 768px) {
             header h1 { font-size: 1.8em; }
-            iframe { height: 400px; }
+            tableau-viz { height: 400px; }
         }
     </style>
 </head>
@@ -98,21 +105,26 @@
 <header>
     <h1>📈 Welcome to Our Fun Analytics Hub 🎉</h1>
     <nav>
-        <a href=\"#dashboard\">📊 Dashboard</a>
-        <a href=\"#insights\">💡 Insights</a>
-        <a href=\"#contact\">📞 Contact</a>
+        <a href="#dashboard">📊 Dashboard</a>
+        <a href="#insights">💡 Insights</a>
+        <a href="#contact">📞 Contact</a>
     </nav>
 </header>
 
-<div class=\"container\">
+<div class="container">
 
-    <section id=\"dashboard\" class=\"dashboard-section\">
+    <section id="dashboard" class="dashboard-section">
         <h2>🌟 Featured Tableau Dashboard</h2>
         <p>Explore interactive insights and analytics below:</p>
-        <iframe src=\"https://public.tableau.com/views/Book1_17431527986070/Dashboard1?:language=en-US&:sid=&:embed=y&:display_count=n&:origin=viz_share_link\"></iframe>
+        <tableau-viz id="tableauViz"
+                     src="https://public.tableau.com/views/Book1_17431527986070/Dashboard1"
+                     toolbar="bottom"
+                     hide-tabs>
+        </tableau-viz>
+        <div id="error-message">⚠️ Oops! Something went wrong. Please refresh the page.</div>
     </section>
 
-    <section id=\"insights\" class=\"dashboard-section\">
+    <section id="insights" class="dashboard-section">
         <h2>🧠 Key Insights</h2>
         <ul>
             <li>📌 Real-time data updates</li>
@@ -123,25 +135,31 @@
 
 </div>
 
-<footer id=\"contact\">
-    <p>👋 Want more analytics? Reach us at <a href=\"mailto:analytics@funhub.com\" style=\"color: #fff;\">analytics@funhub.com</a></p>
+<footer id="contact">
+    <p>👋 Want more analytics? Reach us at <a href="mailto:analytics@funhub.com" style="color: #fff;">analytics@funhub.com</a></p>
 </footer>
 
 <script>
-    document.addEventListener(\"DOMContentLoaded\", function() {
-        const links = document.querySelectorAll('nav a');
+    document.addEventListener("DOMContentLoaded", () => {
+        const tableauViz = document.getElementById('tableauViz');
+        const errorMessage = document.getElementById('error-message');
 
-        links.forEach(link => {
-            link.addEventListener('click', smoothScroll);
+        tableauViz.addEventListener('firstinteractive', () => {
+            errorMessage.style.display = 'none';
         });
 
-        function smoothScroll(event) {
+        setTimeout(() => {
+            if (tableauViz.clientHeight === 0) {
+                errorMessage.style.display = 'block';
+            }
+        }, 10000);
+
+        const links = document.querySelectorAll('nav a');
+        links.forEach(link => link.addEventListener('click', (event) => {
             event.preventDefault();
-            const targetId = this.getAttribute(\"href\").substring(1);
-            document.getElementById(targetId).scrollIntoView({
-                behavior: \"smooth\"
-            });
-        }
+            const targetId = link.getAttribute("href").substring(1);
+            document.getElementById(targetId).scrollIntoView({ behavior: "smooth" });
+        }));
     });
 </script>
 
