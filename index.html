@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="he" dir="rtl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>מרכז ניתוח נתונים 📊✨</title>
+    <title>Data Analytics Dashboard 📊✨</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -12,8 +12,6 @@
             background: linear-gradient(135deg, #6e8efb, #a777e3);
             color: #333;
             min-height: 100vh;
-            direction: rtl;
-            text-align: right;
         }
 
         .container {
@@ -34,23 +32,23 @@
             text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
         }
 
-        .nav-bar {
+        .nav-menu {
             background: rgba(255, 255, 255, 0.9);
             padding: 15px;
             border-radius: 10px;
-            margin-bottom: 30px;
+            margin: 20px 0;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
-        .nav-bar a {
+        .nav-menu a {
             color: #6e8efb;
             text-decoration: none;
-            margin: 0 20px;
+            margin: 0 15px;
             font-weight: bold;
             transition: color 0.3s;
         }
 
-        .nav-bar a:hover {
+        .nav-menu a:hover {
             color: #a777e3;
         }
 
@@ -58,14 +56,39 @@
             background: white;
             padding: 30px;
             border-radius: 15px;
-            margin-bottom: 30px;
+            margin: 20px 0;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            animation: slideUp 0.5s ease-out;
+            animation: slideUp 0.8s ease-out;
         }
 
         h2 {
             color: #6e8efb;
             margin-bottom: 20px;
+        }
+
+        .tableau-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(110, 142, 251, 0.3);
+        }
+
+        .tableau-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .fallback-message {
+            display: none;
+            text-align: center;
+            color: #666;
+            padding: 20px;
         }
 
         .stats-grid {
@@ -77,9 +100,9 @@
 
         .stat-card {
             background: linear-gradient(45deg, #a777e3, #6e8efb);
+            color: white;
             padding: 20px;
             border-radius: 10px;
-            color: white;
             text-align: center;
             transition: transform 0.3s;
         }
@@ -88,20 +111,11 @@
             transform: scale(1.05);
         }
 
-        .stat-card h3 {
-            font-size: 1.2em;
-            margin-bottom: 10px;
-        }
-
-        .stat-card p {
-            font-size: 1.5em;
-            font-weight: bold;
-        }
-
         footer {
             text-align: center;
             padding: 20px;
             color: white;
+            margin-top: 40px;
         }
 
         @keyframes fadeIn {
@@ -110,10 +124,113 @@
         }
 
         @keyframes slideUp {
-            from { transform: translateY(20px); opacity: 0; }
+            from { transform: translateY(50px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
         }
     </style>
 </head>
 <body>
-    <
+    <div class="container">
+        <header>
+            <h1>Data Analytics Hub 📈🚀</h1>
+            <p>Welcome to our awesome insights! 🌟</p>
+        </header>
+
+        <nav class="nav-menu">
+            <a href="#overview">Overview</a>
+            <a href="#tableau">Tableau Analytics</a>
+            <a href="#stats">Quick Stats</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <section class="section" id="overview">
+            <h2>Overview 📋</h2>
+            <p>Dive into our data world! Explore trends, patterns, and insights with our interactive analytics platform. 🎉</p>
+        </section>
+
+        <section class="section" id="tableau">
+            <h2>Tableau Analytics 🎨📊</h2>
+            <p>Check out our featured Tableau dashboard below - your gateway to data magic! ✨</p>
+            <div class="tableau-container">
+                <iframe 
+                    src="https://public.tableau.com/views/Book1_17431527986070/Dashboard1?:language=en-US&:display_count=n&:origin=viz_share_link" 
+                    allowfullscreen
+                    title="Tableau Dashboard">
+                </iframe>
+                <div class="fallback-message">
+                    <p>Oops! The Tableau dashboard isn't loading. 😕 <br> 
+                    <a href="https://public.tableau.com/views/Book1_17431527986070/Dashboard1?:language=en-US&:display_count=n&:origin=viz_share_link" target="_blank">Click here to view it directly on Tableau Public</a> 🌐</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="stats">
+            <h2>Quick Stats ⚡</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Users</h3>
+                    <p>15K 👥</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Data Points</h3>
+                    <p>1.2M 📍</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Insights</h3>
+                    <p>87 🔍</p>
+                </div>
+            </div>
+        </section>
+
+        <footer id="contact">
+            <p>© 2025 Data Analytics Hub | Contact us: hello@datahub.com 📧</p>
+        </footer>
+    </div>
+
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('.nav-menu a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const section = document.querySelector(this.getAttribute('href'));
+                section.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Add bounce animation to stat cards on load
+        window.addEventListener('load', () => {
+            const cards = document.querySelectorAll('.stat-card');
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.animation = 'bounce 0.5s ease';
+                }, index * 200);
+            });
+
+            // Check if Tableau iframe loads, show fallback if it fails
+            const iframe = document.querySelector('.tableau-container iframe');
+            const fallback = document.querySelector('.fallback-message');
+            iframe.addEventListener('error', () => {
+                iframe.style.display = 'none';
+                fallback.style.display = 'block';
+            });
+            // Timeout to check if iframe content loads
+            setTimeout(() => {
+                if (!iframe.contentWindow || iframe.contentWindow.document.body.innerHTML === '') {
+                    iframe.style.display = 'none';
+                    fallback.style.display = 'block';
+                }
+            }, 5000); // 5 seconds timeout
+        });
+
+        // Bounce animation keyframes
+        const styleSheet = document.styleSheets[0];
+        styleSheet.insertRule(`
+            @keyframes bounce {
+                0% { transform: scale(1); }
+                50% { transform: scale(1.1); }
+                100% { transform: scale(1); }
+            }
+        `, styleSheet.cssRules.length);
+    </script>
+</body>
+</html>
