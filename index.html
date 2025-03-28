@@ -66,28 +66,22 @@
             margin-bottom: 20px;
         }
 
-        .tableau-link-container {
-            text-align: center;
-            padding: 20px;
-            background: linear-gradient(45deg, #a777e3, #6e8efb);
+        .tableau-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(110, 142, 251, 0.3);
         }
 
-        .tableau-button {
-            display: inline-block;
-            padding: 15px 30px;
-            background: white;
-            color: #6e8efb;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 25px;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .tableau-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        .tableau-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
         }
 
         .stats-grid {
@@ -130,59 +124,59 @@
 <body>
     <div class="container">
         <header>
-            <h1>Data Analytics Hub 📈🚀</h1>
-            <p>Explore insights with style! ✨</p>
+            <h1>מרכז ניתוח נתונים 📈🚀</h1>
+            <p>גלה תובנות בסטייל! ✨</p>
         </header>
 
         <nav class="nav-bar">
-            <a href="#overview">Overview</a>
-            <a href="#tableau">Tableau Insights</a>
-            <a href="#stats">Quick Stats</a>
-            <a href="#contact">Contact</a>
+            <a href="#overview">סקירה</a>
+            <a href="#tableau">תובנות Tableau</a>
+            <a href="#stats">סטטיסטיקות מהירות</a>
+            <a href="#contact">צור קשר</a>
         </nav>
 
         <div class="section" id="overview">
-            <h2>Overview 🌟</h2>
-            <p>Welcome to our analytics platform! Dive into data-driven decisions with our interactive dashboards and stunning visualizations. 📊</p>
+            <h2>סקירה 🌟</h2>
+            <p>ברוכים הבאים לפלטפורמת הניתוח שלנו! צללו להחלטות מבוססות נתונים עם לוחות מחוונים אינטראקטיביים וויזואליזציות מדהימות. 📊</p>
         </div>
 
         <div class="section" id="tableau">
-            <h2>Tableau Dashboard 🎨</h2>
-            <p>Check out our featured Tableau visualization! It's the heart of our analytics experience. Click below to explore it on Tableau Public. 💖</p>
-            <div class="tableau-link-container">
-                <a href="https://public.tableau.com/views/Book1_17431527986070/Dashboard1?:language=en-US&:display_count=n&:origin=viz_share_link" 
-                   target="_blank" 
-                   class="tableau-button">
-                    View Dashboard 🚀
-                </a>
+            <h2>לוח מחוונים של Tableau 🎨</h2>
+            <p>הנה הוויזואליזציה המרכזית שלנו! הלב של חוויית הניתוח שלנו. 💖</p>
+            <div class="tableau-container">
+                <iframe 
+                    src="https://public.tableau.com/views/Book1_17431527986070/Dashboard1?:embed=y&:display_count=n&:origin=viz_share_link" 
+                    allowfullscreen>
+                </iframe>
             </div>
         </div>
 
         <div class="section" id="stats">
-            <h2>Quick Stats 📉</h2>
+            <h2>סטטיסטיקות מהירות 📉</h2>
+            <p>נתונים מרכזיים מהדשבורד שלנו:</p>
             <div class="stats-grid">
                 <div class="stat-card">
-                    <h3>Users</h3>
+                    <h3>משתמשים</h3>
                     <p>15K 👥</p>
                 </div>
                 <div class="stat-card">
-                    <h3>Revenue</h3>
+                    <h3>הכנסות</h3>
                     <p>$2.5M 💰</p>
                 </div>
                 <div class="stat-card">
-                    <h3>Growth</h3>
+                    <h3>צמיחה</h3>
                     <p>35% 📈</p>
                 </div>
             </div>
         </div>
 
         <div class="section" id="contact">
-            <h2>Get in Touch 📬</h2>
-            <p>Have questions? Reach out at analytics@awesome.com! 😊</p>
+            <h2>צור קשר 📬</h2>
+            <p>יש שאלות? פנה אלינו ב-analytics@awesome.com! 😊</p>
         </div>
 
         <footer>
-            <p>© 2025 Data Analytics Hub | Made with ❤️ & ☕</p>
+            <p>© 2025 מרכז ניתוח נתונים | נוצר עם ❤️ ו-☕</p>
         </footer>
     </div>
 
