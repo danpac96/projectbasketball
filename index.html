@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Analytics Dashboard 📊✨</title>
+    <title>מרכז ניתוח נתונים 📊✨</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -12,6 +12,8 @@
             background: linear-gradient(135deg, #6e8efb, #a777e3);
             color: #333;
             min-height: 100vh;
+            direction: rtl;
+            text-align: right;
         }
 
         .container {
@@ -66,24 +68,6 @@
             margin-bottom: 20px;
         }
 
-        .tableau-container {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
-            height: 0;
-            overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(110, 142, 251, 0.3);
-        }
-
-        .tableau-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -104,6 +88,16 @@
             transform: scale(1.05);
         }
 
+        .stat-card h3 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .stat-card p {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
         footer {
             text-align: center;
             padding: 20px;
@@ -122,91 +116,4 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>מרכז ניתוח נתונים 📈🚀</h1>
-            <p>גלה תובנות בסטייל! ✨</p>
-        </header>
-
-        <nav class="nav-bar">
-            <a href="#overview">סקירה</a>
-            <a href="#tableau">תובנות Tableau</a>
-            <a href="#stats">סטטיסטיקות מהירות</a>
-            <a href="#contact">צור קשר</a>
-        </nav>
-
-        <div class="section" id="overview">
-            <h2>סקירה 🌟</h2>
-            <p>ברוכים הבאים לפלטפורמת הניתוח שלנו! צללו להחלטות מבוססות נתונים עם לוחות מחוונים אינטראקטיביים וויזואליזציות מדהימות. 📊</p>
-        </div>
-
-        <div class="section" id="tableau">
-            <h2>לוח מחוונים של Tableau 🎨</h2>
-            <p>הנה הוויזואליזציה המרכזית שלנו! הלב של חוויית הניתוח שלנו. 💖</p>
-            <div class="tableau-container">
-                <iframe 
-                    src="https://public.tableau.com/views/Book1_17431527986070/Dashboard1?:embed=y&:display_count=n&:origin=viz_share_link" 
-                    allowfullscreen>
-                </iframe>
-            </div>
-        </div>
-
-        <div class="section" id="stats">
-            <h2>סטטיסטיקות מהירות 📉</h2>
-            <p>נתונים מרכזיים מהדשבורד שלנו:</p>
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <h3>משתמשים</h3>
-                    <p>15K 👥</p>
-                </div>
-                <div class="stat-card">
-                    <h3>הכנסות</h3>
-                    <p>$2.5M 💰</p>
-                </div>
-                <div class="stat-card">
-                    <h3>צמיחה</h3>
-                    <p>35% 📈</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="section" id="contact">
-            <h2>צור קשר 📬</h2>
-            <p>יש שאלות? פנה אלינו ב-analytics@awesome.com! 😊</p>
-        </div>
-
-        <footer>
-            <p>© 2025 מרכז ניתוח נתונים | נוצר עם ❤️ ו-☕</p>
-        </footer>
-    </div>
-
-    <script>
-        // Smooth scroll for navigation
-        document.querySelectorAll('.nav-bar a').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const section = document.querySelector(this.getAttribute('href'));
-                section.scrollIntoView({ behavior: 'smooth' });
-            });
-        });
-
-        // Add bounce animation to stat cards on load
-        window.addEventListener('load', () => {
-            const cards = document.querySelectorAll('.stat-card');
-            cards.forEach((card, index) => {
-                card.style.animation = `bounce 0.5s ease ${index * 0.1}s`;
-            });
-        });
-
-        // Bounce animation keyframes
-        const styleSheet = document.styleSheets[0];
-        styleSheet.insertRule(`
-            @keyframes bounce {
-                0% { transform: scale(0.8); }
-                50% { transform: scale(1.1); }
-                100% { transform: scale(1); }
-            }
-        `, styleSheet.cssRules.length);
-    </script>
-</body>
-</html>
+    <
