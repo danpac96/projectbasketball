@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Analytics Dashboard 📊✨</title>
+    <title>לוח ניתוח נתונים 📊✨</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -68,7 +68,7 @@
 
         .tableau-container {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
             border-radius: 10px;
@@ -91,6 +91,21 @@
             padding: 20px;
         }
 
+        .reload-btn {
+            background: #6e8efb;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.3s;
+        }
+
+        .reload-btn:hover {
+            background: #a777e3;
+        }
+
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -109,8 +124,7 @@
 
         .stat-card:hover {
             transform: scale(1.05);
-        }
-
+ }
         footer {
             text-align: center;
             padding: 20px;
@@ -132,63 +146,64 @@
 <body>
     <div class="container">
         <header>
-            <h1>Data Analytics Hub 📈🚀</h1>
-            <p>Welcome to our awesome insights! 🌟</p>
+            <h1>לוח ניתוח נתונים 📈🚀</h1>
+            <p>ברוכים הבאים לתובנות המדהימות שלנו! 🌟</p>
         </header>
 
         <nav class="nav-menu">
-            <a href="#overview">Overview</a>
-            <a href="#tableau">Tableau Analytics</a>
-            <a href="#stats">Quick Stats</a>
-            <a href="#contact">Contact</a>
+            <a href="#overview">סקירה כללית</a>
+            <a href="#tableau">ניתוח Tableau</a>
+            <a href="#stats">סטטיסטיקות מהירות</a>
+            <a href="#contact">צור קשר</a>
         </nav>
 
         <section class="section" id="overview">
-            <h2>Overview 📋</h2>
-            <p>Dive into our data world! Explore trends, patterns, and insights with our interactive analytics platform. 🎉</p>
+            <h2>סקירה כללית 📋</h2>
+            <p>צללו לעולם הנתונים שלנו! גלו מגמות, דפוסים ותובנות עם הפלטפורמה האינטראקטיבית שלנו. 🎉</p>
         </section>
 
         <section class="section" id="tableau">
-            <h2>Tableau Analytics 🎨📊</h2>
-            <p>Check out our featured Tableau dashboard below - your gateway to data magic! ✨</p>
+            <h2>ניתוח Tableau 🎨📊</h2>
+            <p>בדקו את לוח הבקרה המוביל שלנו ב-Tableau למטה - השער שלכם לקסם הנתונים! ✨</p>
             <div class="tableau-container">
                 <iframe 
                     src="https://public.tableau.com/views/Book1_17431527986070/Dashboard1?:language=en-US&:display_count=n&:origin=viz_share_link" 
                     allowfullscreen
-                    title="Tableau Dashboard">
+                    title="לוח בקרה של Tableau">
                 </iframe>
                 <div class="fallback-message">
-                    <p>Oops! The Tableau dashboard isn't loading. 😕 <br> 
-                    <a href="https://public.tableau.com/views/Book1_17431527986070/Dashboard1?:language=en-US&:display_count=n&:origin=viz_share_link" target="_blank">Click here to view it directly on Tableau Public</a> 🌐</p>
+                    <p>אופס! לוח הבקרה של Tableau לא נטען. 😕<br>
+                    <a href="https://public.tableau.com/views/Book1_17431527986070/Dashboard1?:language=en-US&:display_count=n&:origin=viz_share_link" target="_blank">לחצו כאן לצפייה ישירה ב-Tableau Public</a> 🌐</p>
+                    <button class="reload-btn" onclick="reloadIframe()">נסו לטעון מחדש 🔄</button>
                 </div>
             </div>
         </section>
 
         <section class="section" id="stats">
-            <h2>Quick Stats ⚡</h2>
+            <h2>סטטיסטיקות מהירות ⚡</h2>
             <div class="stats-grid">
                 <div class="stat-card">
-                    <h3>Users</h3>
+                    <h3>משתמשים</h3>
                     <p>15K 👥</p>
                 </div>
                 <div class="stat-card">
-                    <h3>Data Points</h3>
+                    <h3>נקודות נתונים</h3>
                     <p>1.2M 📍</p>
                 </div>
                 <div class="stat-card">
-                    <h3>Insights</h3>
+                    <h3>תובנות</h3>
                     <p>87 🔍</p>
                 </div>
             </div>
         </section>
 
         <footer id="contact">
-            <p>© 2025 Data Analytics Hub | Contact us: hello@datahub.com 📧</p>
+            <p>© 2025 לוח ניתוח נתונים | צרו קשר: hello@datahub.com 📧</p>
         </footer>
     </div>
 
     <script>
-        // Smooth scrolling for navigation
+        // גלילה חלקה לניווט
         document.querySelectorAll('.nav-menu a').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -197,7 +212,7 @@
             });
         });
 
-        // Add bounce animation to stat cards on load
+        // אנימציית קפיצה לכרטיסי סטטיסטיקה בטעינה
         window.addEventListener('load', () => {
             const cards = document.querySelectorAll('.stat-card');
             cards.forEach((card, index) => {
@@ -206,23 +221,37 @@
                 }, index * 200);
             });
 
-            // Check if Tableau iframe loads, show fallback if it fails
+            // בדיקת טעינת ה-iframe של Tableau
             const iframe = document.querySelector('.tableau-container iframe');
             const fallback = document.querySelector('.fallback-message');
             iframe.addEventListener('error', () => {
                 iframe.style.display = 'none';
                 fallback.style.display = 'block';
             });
-            // Timeout to check if iframe content loads
             setTimeout(() => {
                 if (!iframe.contentWindow || iframe.contentWindow.document.body.innerHTML === '') {
                     iframe.style.display = 'none';
                     fallback.style.display = 'block';
                 }
-            }, 5000); // 5 seconds timeout
+            }, 5000); // זמן המתנה של 5 שניות
         });
 
-        // Bounce animation keyframes
+        // פונקציה לטעינה מחדש של ה-iframe
+        function reloadIframe() {
+            const iframe = document.querySelector('.tableau-container iframe');
+            const fallback = document.querySelector('.fallback-message');
+            iframe.src = iframe.src; // טעינה מחדש
+            iframe.style.display = 'block';
+            fallback.style.display = 'none';
+            setTimeout(() => {
+                if (!iframe.contentWindow || iframe.contentWindow.document.body.innerHTML === '') {
+                    iframe.style.display = 'none';
+                    fallback.style.display = 'block';
+                }
+            }, 5000);
+        }
+
+        // מפתחות לאנימציית קפיצה
         const styleSheet = document.styleSheets[0];
         styleSheet.insertRule(`
             @keyframes bounce {
