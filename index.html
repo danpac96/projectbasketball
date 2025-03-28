@@ -66,43 +66,34 @@
             margin-bottom: 20px;
         }
 
-        .tableau-container {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
+        .tableau-preview {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .tableau-preview img {
+            max-width: 100%;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(110, 142, 251, 0.3);
+            transition: transform 0.3s;
         }
 
-        .tableau-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
+        .tableau-preview img:hover {
+            transform: scale(1.02);
         }
 
-        .fallback-message {
-            display: none;
-            text-align: center;
-            color: #666;
-            padding: 20px;
-        }
-
-        .reload-btn {
+        .tableau-link {
+            display: inline-block;
             background: #6e8efb;
             color: white;
-            border: none;
             padding: 10px 20px;
             border-radius: 5px;
-            cursor: pointer;
-            margin-top: 10px;
+            text-decoration: none;
+            margin-top: 15px;
             transition: background 0.3s;
         }
 
-        .reload-btn:hover {
+        .tableau-link:hover {
             background: #a777e3;
         }
 
@@ -124,7 +115,8 @@
 
         .stat-card:hover {
             transform: scale(1.05);
- }
+        }
+
         footer {
             text-align: center;
             padding: 20px;
@@ -164,19 +156,14 @@
 
         <section class="section" id="tableau">
             <h2>ניתוח Tableau 🎨📊</h2>
-            <p>בדקו את לוח הבקרה המוביל שלנו ב-Tableau למטה - השער שלכם לקסם הנתונים! ✨</p>
-            <div class="tableau-container">
-                <iframe 
-                    src="https://public.tableau.com/views/Book1_17431527986070/Dashboard1?:language=en-US&:display_count=n&:origin=viz_share_link" 
-                    allowfullscreen
-                    title="לוח בקרה של Tableau">
-                </iframe>
-                <div class="fallback-message">
-                    <p>אופס! לוח הבקרה של Tableau לא נטען. 😕<br>
-                    <a href="https://public.tableau.com/views/Book1_17431527986070/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" target="_blank">לחצו כאן לצפייה ישירה ב-Tableau Public</a> 🌐</p>
-                    <button class="reload-btn" onclick="reloadIframe()">נסו לטעון מחדש 🔄</button
-                                                                                            
-                </div>
+            <p>גלו את לוח הבקרה המוביל שלנו ב-Tableau - השער שלכם לקסם הנתונים! ✨</p>
+            <div class="tableau-preview">
+                <a href="https://public.tableau.com/views/Book1_17431527986070/Dashboard1?:language=en-US&:display_count=n&:origin=viz_share_link" target="_blank">
+                    <!-- החלף את ה-URL של התמונה בתמונה אמיתית של הדשבורד -->
+                    <img src="https://via.placeholder.com/800x450.png?text=תצוגה+מקדימה+של+לוח+הבקרה" alt="תצוגה מקדימה של Tableau">
+                </a>
+                <p>לחצו על הכפתור למטה כדי לצפות בלוח הבקרה המלא! 🚀</p>
+                <a href="https://public.tableau.com/views/Book1_17431527986070/Dashboard1?:language=en-US&:display_count=n&:origin=viz_share_link" target="_blank" class="tableau-link">צפו בלוח הבקרה ב-Tableau Public 🌐</a>
             </div>
         </section>
 
@@ -213,7 +200,7 @@
             });
         });
 
-        // אנימציית קפיצה לכרטיסי סטטיסטיקה בטעינה
+        // אנימציית קפיצה לכרטיסי סטטיסטיקה
         window.addEventListener('load', () => {
             const cards = document.querySelectorAll('.stat-card');
             cards.forEach((card, index) => {
@@ -221,36 +208,7 @@
                     card.style.animation = 'bounce 0.5s ease';
                 }, index * 200);
             });
-
-            // בדיקת טעינת ה-iframe של Tableau
-            const iframe = document.querySelector('.tableau-container iframe');
-            const fallback = document.querySelector('.fallback-message');
-            iframe.addEventListener('error', () => {
-                iframe.style.display = 'none';
-                fallback.style.display = 'block';
-            });
-            setTimeout(() => {
-                if (!iframe.contentWindow || iframe.contentWindow.document.body.innerHTML === '') {
-                    iframe.style.display = 'none';
-                    fallback.style.display = 'block';
-                }
-            }, 5000); // זמן המתנה של 5 שניות
         });
-
-        // פונקציה לטעינה מחדש של ה-iframe
-        function reloadIframe() {
-            const iframe = document.querySelector('.tableau-container iframe');
-            const fallback = document.querySelector('.fallback-message');
-            iframe.src = iframe.src; // טעינה מחדש
-            iframe.style.display = 'block';
-            fallback.style.display = 'none';
-            setTimeout(() => {
-                if (!iframe.contentWindow || iframe.contentWindow.document.body.innerHTML === '') {
-                    iframe.style.display = 'none';
-                    fallback.style.display = 'block';
-                }
-            }, 5000);
-        }
 
         // מפתחות לאנימציית קפיצה
         const styleSheet = document.styleSheets[0];
